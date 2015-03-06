@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function error() {
+	echo "ERROR: $1" 1>&2
+	if [[ $2 =~ ^[0-9]+$ ]]; then
+		exit $2
+	fi
+}
+
+if [ $(basename -- $0) == "console-colors" ]; then
+	error "Please, source this file instead of executing it." 1
+fi
