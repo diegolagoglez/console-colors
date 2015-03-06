@@ -7,6 +7,16 @@ function error() {
 	fi
 }
 
+__CC_ENABLE_COLORS=1
+
+function enable_colors() {
+	__CC_ENABLE_COLORS=1
+}
+
+function disable_colors() {
+	__CC_ENABLE_COLORS=0
+}
+
 if [ $(basename -- $0) == "console-colors" ]; then
 	error "Please, source this file instead of executing it." 1
 fi
