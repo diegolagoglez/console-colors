@@ -1,5 +1,39 @@
 #!/bin/bash
 
+colors=(black red green yellow blue purple cyan gray dark-gray light-red light-green light-yellow light-blue light-purple light-cyan white)
+
+attrs=(normal bold dim underline strike inverted hidden)
+
+declare -A color_codes
+declare -A color_attrs_codes
+
+color_codes[black]="30"
+color_codes[red]="31"
+color_codes[green]="32"
+color_codes[yellow]="33"
+color_codes[blue]="34"
+color_codes[purple]="35"
+color_codes[cyan]="36"
+color_codes[gray]="37"
+color_codes[dark-gray]="90"
+color_codes[light-red]="91"
+color_codes[light-green]="92"
+color_codes[light-yellow]="93"
+color_codes[light-blue]="94"
+color_codes[light-purple]="95"
+color_codes[light-cyan]="96"
+color_codes[white]="97"
+
+color_codes[reset]="0"
+
+color_attrs_codes[normal]="0"
+color_attrs_codes[bold]="1"
+color_attrs_codes[dim]="2"
+color_attrs_codes[underline]="4"
+color_attrs_codes[strike]="9"
+color_attrs_codes[inverted]="7"
+color_attrs_codes[hidden]="8"
+
 function error() {
 	echo "ERROR: $1" 1>&2
 	if [[ $2 =~ ^[0-9]+$ ]]; then
