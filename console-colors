@@ -51,6 +51,10 @@ function disable_colors() {
 	__CC_ENABLE_COLORS=0
 }
 
+function get_color_attrs() {
+	test -n "$1" && echo -n ${color_attrs_codes[$1]}
+}
+
 if [ $(basename -- $0) == "console-colors" ]; then
 	error "Please, source this file instead of executing it." 1
 fi
