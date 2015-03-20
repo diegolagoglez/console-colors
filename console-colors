@@ -55,6 +55,13 @@ function get_color_attrs() {
 	test -n "$1" && echo -n ${color_attrs_codes[$1]}
 }
 
+function color() {
+	if [ __CC_ENABLE_COLORS != 0 ]; then
+		local name="$1"
+		echo -ne "\e[$(get_color_attrs $2);${color_codes[$name]}m"
+	fi
+}
+
 if [ $(basename -- $0) == "console-colors" ]; then
 	error "Please, source this file instead of executing it." 1
 fi
