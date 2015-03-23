@@ -2,9 +2,9 @@
 
 source console-colors
 
-echo "ENABLE COLORS"
+echo "DISABLE COLORS"
 
-enable_colors
+disable_colors
 
 for a in ${attrs[@]}; do
 	for c in ${colors[@]}; do
