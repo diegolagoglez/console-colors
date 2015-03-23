@@ -46,7 +46,7 @@ color_codes[lc]="96"
 color_codes[w]="97"
 
 color_codes[reset]="0"
-color_codes[r]="0"
+color_codes[x]="0"
 
 color_attrs_codes[normal]="0"
 color_attrs_codes[bold]="1"
