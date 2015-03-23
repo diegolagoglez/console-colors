@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source console-colors
+source ../console-colors
 
 echo "DISABLE COLORS"
 
