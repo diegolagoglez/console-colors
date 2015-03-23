@@ -2,7 +2,11 @@
 
 colors=(black red green yellow blue purple cyan gray dark-gray light-red light-green light-yellow light-blue light-purple light-cyan white)
 
+colors_abbrs=(k r g y b p c g dg lr lg ly lb lp lc w)
+
 attrs=(normal bold dim underline strike inverted hidden)
+
+attrs_abbrs=(n b d u s i h)
 
 declare -A color_codes
 declare -A color_attrs_codes
@@ -24,7 +28,25 @@ color_codes[light-purple]="95"
 color_codes[light-cyan]="96"
 color_codes[white]="97"
 
+color_codes[k]="30"
+color_codes[r]="31"
+color_codes[g]="32"
+color_codes[y]="33"
+color_codes[b]="34"
+color_codes[p]="35"
+color_codes[c]="36"
+color_codes[g]="37"
+color_codes[dg]="90"
+color_codes[lr]="91"
+color_codes[lg]="92"
+color_codes[ly]="93"
+color_codes[lb]="94"
+color_codes[lp]="95"
+color_codes[lc]="96"
+color_codes[w]="97"
+
 color_codes[reset]="0"
+color_codes[r]="0"
 
 color_attrs_codes[normal]="0"
 color_attrs_codes[bold]="1"
@@ -33,6 +55,14 @@ color_attrs_codes[underline]="4"
 color_attrs_codes[strike]="9"
 color_attrs_codes[inverted]="7"
 color_attrs_codes[hidden]="8"
+
+color_attrs_codes[n]="0"
+color_attrs_codes[b]="1"
+color_attrs_codes[d]="2"
+color_attrs_codes[u]="4"
+color_attrs_codes[s]="9"
+color_attrs_codes[i]="7"
+color_attrs_codes[h]="8"
 
 function error() {
 	echo "ERROR: $1" 1>&2
@@ -59,6 +89,10 @@ function color() {
 	if [ __CC_ENABLE_COLORS != 0 ]; then
 		[ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -ne "\e[$(get_color_attrs $2);${color_codes[$1]}m"
 	fi
+}
+
+function c() {
+	color "$@"
 }
 
 if [ $(basename -- $0) == "console-colors" ]; then
