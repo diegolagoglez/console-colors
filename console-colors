@@ -86,7 +86,7 @@ function get_color_attrs() {
 }
 
 function color() {
-	if [ __CC_ENABLE_COLORS != 0 ]; then
+	if [ $__CC_ENABLE_COLORS != 0 ]; then
 		[ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -ne "\e[$(get_color_attrs $2);${color_codes[$1]}m"
 	fi
 }
