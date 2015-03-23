@@ -81,6 +81,12 @@ function disable_colors() {
 	__CC_ENABLE_COLORS=0
 }
 
+function disable_colors_if_no_tty() {
+	if [ ! -t 1 ]; then
+		disable_colors
+	fi
+}
+
 function get_color_attrs() {
 	[ ! -z "$1" ] && [ ${color_attrs_codes[$1]+exists} ] && echo -n ${color_attrs_codes[$1]}
 }
