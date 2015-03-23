@@ -4,6 +4,10 @@
 
 `console-colors` is a console library to manipulate terminal colors.
 
+## Installation
+
+Just copy `console-colors` file to any location in your computer.
+
 ## Usage
 
 Source the main file into your script with:
