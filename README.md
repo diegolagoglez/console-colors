@@ -22,8 +22,39 @@ In order to use the color utilities, you just have to call the `color` function 
 
 ```bash
 echo "Print $(color red)text in red$(color reset)."
-echo "Print $(c g)in green$(c x) using abbreviations."
+echo "Print $(c g b)in bold green$(c x) using abbreviations."
 ```
+## Available colors and attributes
+
+### List of available colors (and abbreviation):
+
+* black (k)
+* red (r)
+* green (g)
+* yellow (y)
+* blue (b)
+* purple (p)
+* cyan (c)
+* gray (gr)
+* dark-gray (dg)
+* light-red (lr)
+* light-green (lg)
+* light-yellow (ly)
+* light-blue (lb)
+* light-purple (lp)
+* light-cyan (lc)
+* white (w)
+
+* reset (x)
+### List of available attributes (and abbreviation):
+
+* normal (n)
+* bold (b)
+* dim (d)
+* underline (u)
+* strike (s)
+* inverted (i)
+* hidden (h)
 
 ## License
 
