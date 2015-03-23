@@ -24,6 +24,15 @@ In order to use the color utilities, you just have to call the `color` function 
 echo "Print $(color red)text in red$(color reset)."
 echo "Print $(c g b)in bold green$(c x) using abbreviations."
 ```
+
+## Functions
+
+* `enable_colors`: Enable color ouput.
+* `disable_colors`: Disable color ouput.
+* `disable_colors_if_no_tty`: Disable color output if not in a TTY (i.e. when command is redirected).
+* `color <color> <attr>`: Output escape characters to enable colored text.
+* `c <color> <attr>`: Alias of `color` function.
+
 ## Available colors and attributes
 
 ### List of available colors (and abbreviation):
