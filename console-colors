@@ -52,7 +52,7 @@ function disable_colors() {
 }
 
 function get_color_attrs() {
-	test -n "$1" && echo -n ${color_attrs_codes[$1]}
+	[ ! -z "$1" ] && [ ${color_attrs_codes[$1]+exists} ] && echo -n ${color_attrs_codes[$1]}
 }
 
 function color() {
