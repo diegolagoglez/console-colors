@@ -1,8 +1,8 @@
 # Console Colors
 
-## Introduction
-
 `console-colors` is a console library to manipulate terminal colors.
+
+Currently, only 16 colors terminal are supported.
 
 ## Installation
 
@@ -71,7 +71,7 @@ echo "Print $(c g b)in bold green$(c x) using abbreviations."
 
 ## License
 
-GPLv3
+[GPLv3](https://github.com/diegolagoglez/console-colors/blob/master/LICENSE)
 
 [Diego Lago](diego.lago.gonzalez@gmail.com)
 
