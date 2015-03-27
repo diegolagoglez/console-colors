@@ -92,6 +92,16 @@ function c() {
 	color "$@"
 }
 
+function pcolor() {
+	# There is no 'echo -e' (no escape character interpretation) because
+	# that should be done by the prompt (PS1, PS2, PS3 and PS4).
+	[ $CONSOLE_COLORS_ENABLE != 0 ] && [ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -n "\[\e[$(get_color_attrs $2);${color_codes[$1]}m\]"
+}
+
+function pc() {
+	pcolor "$@"
+}
+
 if [ $(basename -- $0) == "console-colors" ]; then
 	echo "ERROR: Please, source this file instead of executing it." 1>&2 && exit 1
 fi
