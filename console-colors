@@ -71,14 +71,14 @@ function error() {
 	fi
 }
 
-__CC_ENABLE_COLORS=1
+CONSOLE_COLORS_ENABLE=1
 
 function enable_colors() {
-	__CC_ENABLE_COLORS=1
+	CONSOLE_COLORS_ENABLE=1
 }
 
 function disable_colors() {
-	__CC_ENABLE_COLORS=0
+	CONSOLE_COLORS_ENABLE=0
 }
 
 function disable_colors_if_no_tty() {
@@ -92,9 +92,7 @@ function get_color_attrs() {
 }
 
 function color() {
-	if [ $__CC_ENABLE_COLORS != 0 ]; then
-		[ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -ne "\e[$(get_color_attrs $2);${color_codes[$1]}m"
-	fi
+	[ $CONSOLE_COLORS_ENABLE != 0 ] && [ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -ne "\e[$(get_color_attrs $2);${color_codes[$1]}m"
 }
 
 function c() {
