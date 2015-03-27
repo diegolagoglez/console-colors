@@ -14,6 +14,6 @@ done
 
 for a in ${attrs_abbrs[@]}; do
 	for c in ${colors_abbrs[@]}; do
-		echo "Call: \$(c $c $a) = $(c $c $a)$c ($a)$(c r) "
+		echo "Call: \$(c $c $a) = $(c $c $a)$c ($a)$(c x) "
 	done
 done
