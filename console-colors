@@ -64,13 +64,6 @@ color_attrs_codes[s]="9"
 color_attrs_codes[i]="7"
 color_attrs_codes[h]="8"
 
-function error() {
-	echo "ERROR: $1" 1>&2
-	if [[ $2 =~ ^[0-9]+$ ]]; then
-		exit $2
-	fi
-}
-
 CONSOLE_COLORS_ENABLE=1
 
 function enable_colors() {
@@ -100,5 +93,5 @@ function c() {
 }
 
 if [ $(basename -- $0) == "console-colors" ]; then
-	error "Please, source this file instead of executing it." 1
+	echo "ERROR: Please, source this file instead of executing it." 1>&2 && exit 1
 fi
