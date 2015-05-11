@@ -15,7 +15,7 @@ attrs=(normal bold dim underline strike inverted hidden)
 attrs_abbrs=(n b d u s i h)
 
 if ! declare -A color_codes 2>/dev/null; then
-	echo "ERROR: BASH version too old." 1>&2
+	echo "ERROR: Shell version too old ('declare -A' is not supported)." 1>&2
 	exit 1
 fi
 
