@@ -14,7 +14,12 @@ attrs=(normal bold dim underline strike inverted hidden)
 
 attrs_abbrs=(n b d u s i h)
 
-declare -A color_codes
+if ! declare -A color_codes; then
+	echo "ERROR: BASH version too old." 1>&2
+	exit 1
+fi
+
+# Same command as previous; do not error check.
 declare -A color_attrs_codes
 
 color_codes[black]="30"
