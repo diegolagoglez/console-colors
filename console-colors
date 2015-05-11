@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Author : Diego Lago <diego.lago.gonzalez@hp.com>
+# Version: 0.1
+# Date   : 2015-05-11
+# Home   : https://github.com/diegolagoglez/console-colors
+# License: GPLv3 (See LICENSE)
+
 colors=(black red green yellow blue purple cyan gray dark-gray light-red light-green light-yellow light-blue light-purple light-cyan white)
 
 colors_abbrs=(k r g y b p c g dg lr lg ly lb lp lc w)
