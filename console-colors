@@ -14,66 +14,41 @@ attrs=(normal bold dim underline strike inverted hidden)
 
 attrs_abbrs=(n b d u s i h)
 
-if ! declare -A color_codes 2>/dev/null; then
-	echo "ERROR: Shell version too old ('declare -A' is not supported)." 1>&2
-	exit 1
-fi
+function getColorCode() {
+	case "$1" in
+		black|k) echo "30" ;;
+		red|r) echo "31" ;;
+		green|g) echo "32" ;;
+		yellow|y) echo "33" ;;
+		blue|b) echo "34" ;;
+		purple|p) echo "35" ;;
+		cyan|c) echo "36" ;;
+		gray|gr) echo "37" ;;
+		dark-gray|dg) echo "90" ;;
+		light-red|lr) echo "91" ;;
+		light-green|lg) echo "92" ;;
+		light-yellow|ly) echo "93" ;;
+		light-blue|lb) echo "94" ;;
+		light-purple|lp) echo "95" ;;
+		light-cyan|lc) echo "96" ;;
+		white|w) echo "97" ;;
+		reset|x) echo "0" ;;
+		*) echo "0" ;;
+	esac
+}
 
-# Same command as previous; do not error check.
-declare -A color_attrs_codes
-
-color_codes[black]="30"
-color_codes[red]="31"
-color_codes[green]="32"
-color_codes[yellow]="33"
-color_codes[blue]="34"
-color_codes[purple]="35"
-color_codes[cyan]="36"
-color_codes[gray]="37"
-color_codes[dark-gray]="90"
-color_codes[light-red]="91"
-color_codes[light-green]="92"
-color_codes[light-yellow]="93"
-color_codes[light-blue]="94"
-color_codes[light-purple]="95"
-color_codes[light-cyan]="96"
-color_codes[white]="97"
-
-color_codes[k]="30"
-color_codes[r]="31"
-color_codes[g]="32"
-color_codes[y]="33"
-color_codes[b]="34"
-color_codes[p]="35"
-color_codes[c]="36"
-color_codes[gr]="37"
-color_codes[dg]="90"
-color_codes[lr]="91"
-color_codes[lg]="92"
-color_codes[ly]="93"
-color_codes[lb]="94"
-color_codes[lp]="95"
-color_codes[lc]="96"
-color_codes[w]="97"
-
-color_codes[reset]="0"
-color_codes[x]="0"
-
-color_attrs_codes[normal]="0"
-color_attrs_codes[bold]="1"
-color_attrs_codes[dim]="2"
-color_attrs_codes[underline]="4"
-color_attrs_codes[strike]="9"
-color_attrs_codes[inverted]="7"
-color_attrs_codes[hidden]="8"
-
-color_attrs_codes[n]="0"
-color_attrs_codes[b]="1"
-color_attrs_codes[d]="2"
-color_attrs_codes[u]="4"
-color_attrs_codes[s]="9"
-color_attrs_codes[i]="7"
-color_attrs_codes[h]="8"
+function getColorAttrCode() {
+	case "$1" in
+		normal|n) echo "0" ;;
+		bold|b) echo "1" ;;
+		dim|d) echo "2" ;;
+		underline|u) echo "4" ;;
+		strike|s) echo "9" ;;
+		inverted|i) echo "7" ;;
+		hidden|h) echo "8" ;;
+		*) echo "0" ;;
+	esac
+}
 
 CONSOLE_COLORS_ENABLE=1
 
@@ -91,12 +66,8 @@ function disable_colors_if_no_tty() {
 	fi
 }
 
-function get_color_attrs() {
-	[ ! -z "$1" ] && [ ${color_attrs_codes[$1]+exists} ] && echo -n ${color_attrs_codes[$1]}
-}
-
 function color() {
-	[ $CONSOLE_COLORS_ENABLE != 0 ] && [ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -ne "\e[$(get_color_attrs $2);${color_codes[$1]}m"
+	[ $CONSOLE_COLORS_ENABLE != 0 ] && echo -ne "\e[$(getColorAttrCode $2);$(getColorCode $1)m"
 }
 
 function c() {
@@ -106,7 +77,7 @@ function c() {
 function pcolor() {
 	# There is no 'echo -e' (no escape character interpretation) because
 	# that should be done by the prompt (PS1, PS2, PS3 and PS4).
-	[ $CONSOLE_COLORS_ENABLE != 0 ] && [ ! -z "$1" ] && [ ${color_codes[$1]+exists} ] && echo -n "\[\e[$(get_color_attrs $2);${color_codes[$1]}m\]"
+	[ $CONSOLE_COLORS_ENABLE != 0 ] && echo -n "\[\e[$(getColorAttrCode $2);$(getColorCode $1)m\]"
 }
 
 function pc() {
