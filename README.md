@@ -27,7 +27,10 @@ In order to use the color utilities, you just have to call the `color` function 
 ```bash
 echo "Print $(color red)text in red$(color reset)."
 echo "Print $(c g b)in bold green$(c x) using abbreviations."
+echo "Print $(c w)$(c br)white text with red background$(c x) using abbreviations."
 ```
+
+NOTE: Set foregreound color *before* background color.
 
 ## Functions
 
@@ -59,6 +62,25 @@ echo "Print $(c g b)in bold green$(c x) using abbreviations."
 * `white` (`w`)
 
 * `reset` (`x`)
+
+### List of available background colors (and abbreviation):
+
+* `bgray` (`bgr`)
+* `bred` (`br`)
+* `bgreen` (`bg`)
+* `byellow` (`by`)
+* `bblue` (`bb`)
+* `bpurple` (`bp`)
+* `bcyan` (`bc`)
+* `bwhite` (`bw`)
+* `blight-gray` (`bdg`)
+* `blight-red` (`blr`)
+* `blight-green` (`blg`)
+* `blight-yellow` (`bly`)
+* `blight-blue` (`blb`)
+* `blight-purple` (`blp`)
+* `blight-cyan` (`blc`)
+* `blight-white` (`blw`)
 
 ### List of available attributes (and abbreviation):
 
