@@ -22,6 +22,7 @@ fi
 # Same command as previous; do not error check.
 declare -A color_attrs_codes
 
+# Foreground
 color_codes[black]="30"
 color_codes[red]="31"
 color_codes[green]="32"
@@ -39,6 +40,25 @@ color_codes[light-purple]="95"
 color_codes[light-cyan]="96"
 color_codes[white]="97"
 
+# Background
+color_codes[bgray]="40"
+color_codes[bred]="41"
+color_codes[bgreen]="42"
+color_codes[byellow]="43"
+color_codes[bblue]="44"
+color_codes[bpurple]="45"
+color_codes[bcyan]="46"
+color_codes[bwhite]="47"
+color_codes[blight-gray]="100"
+color_codes[blight-red]="101"
+color_codes[blight-green]="102"
+color_codes[blight-yellow]="103"
+color_codes[blight-blue]="104"
+color_codes[blight-purple]="105"
+color_codes[blight-cyan]="106"
+color_codes[blight-white]="107"
+
+# Foreground
 color_codes[k]="30"
 color_codes[r]="31"
 color_codes[g]="32"
@@ -55,6 +75,24 @@ color_codes[lb]="94"
 color_codes[lp]="95"
 color_codes[lc]="96"
 color_codes[w]="97"
+
+# Background
+color_codes[bgr]="40"
+color_codes[br]="41"
+color_codes[bg]="42"
+color_codes[by]="43"
+color_codes[bb]="44"
+color_codes[bp]="45"
+color_codes[bc]="46"
+color_codes[bw]="47"
+color_codes[blgr]="100"
+color_codes[blr]="101"
+color_codes[blg]="102"
+color_codes[bly]="103"
+color_codes[blb]="104"
+color_codes[blp]="105"
+color_codes[blc]="106"
+color_codes[blw]="107"
 
 color_codes[reset]="0"
 color_codes[x]="0"
